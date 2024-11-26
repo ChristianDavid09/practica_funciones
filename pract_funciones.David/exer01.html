@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio01</title>
+</head>
+<body>
+    <h1>Recopilador de list</h1> 
+    <li id="result"></li>
+
+
+    <script> 
+        const list = new Set(); 
+        let word; 
+        while ((word = prompt("Introduce una palabra:")) !== null && word.trim() !== "") { 
+            list.add(word.trim()); 
+        } 
+        const sortedlist = Array.from(list).sort((a, b) => b.localeCompare(a, 'es')); 
+        document.getElementById('result').textContent = `${sortedlist}`; 
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio02</title>
+</head>
+<body>
+    <h1>Recopilador de list</h1> 
+    <ul id="result"></ul>
+
+
+    <script>
+       function AddMapWords(arrayWords) { 
+            const mapWords = new Map(); 
+            arrayWords.forEach(word => { 
+                const cont = mapWords.get(word) || 0; mapWords.set(word, cont + 1); 
+            }); 
+        return mapWords; 
+        } 
+        const words = []; 
+        let start; 
+        do { 
+            start = prompt("Introduce una palabra:"); 
+            if (start !== null && start.trim() !== "") { 
+                words.push(start.trim()); 
+            } 
+        } while (start !== null && start.trim() !== ""); 
+        const mapWords = AddMapWords(words); 
+        const resultElement = document.getElementById('result'); 
+        let listHTML = ''; mapWords.forEach((valor, clave) => { 
+        listHTML += `<li>${clave}: ${valor}</li>`; }); 
+        resultElement.innerHTML = listHTML;
+    </script>
+</body>
+</html>
